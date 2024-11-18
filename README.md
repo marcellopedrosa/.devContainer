@@ -1,4 +1,4 @@
-# .devContainer
+# .devcontainer
 
 1) Install VS Code
 2) Install plugins: Extension Pack for Java / Remote Development
