@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  rest-nome-projeto:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    container_name: rest-nome-projeto
+    hostname: docker-dev-marcello-pedrosa
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+    ports:
+      - '9010:8080'
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    dns_search:
+      - dns.google.com
+    networks:
+      - default
+    volumes:
+      - /usr/local/repository:/usr/local/repository
+      - /etc/fachesf:/etc/confEmpresa
+      - /etc/resolv.conf.docker:/etc/resolv.conf
+    command: tail -f /dev/null
+    environment:
+      MAVEN_OPTS: "-Dmaven.wagon.http.ssl.insecure=true"
+      JAVA_OPTS: "-XX:+UseG1GC -Xms128 -Xmx512m -XX:NewSize=128m -XX:MaxNewSize=256m"
+    restart: unless-stopped
+networks:
+  default:
+    name: backend-microservice

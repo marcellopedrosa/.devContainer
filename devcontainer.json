@@ -1,0 +1,42 @@
+{
+    "name": "rest-nome-projeto",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "rest-nome-projeto",
+    "workspaceFolder": "/workspace",
+    // "settings": {
+    //     "terminal.integrated.shell.linux": "/bin/bash",
+    //     "java.home": "/usr/local/openjdk-11",
+    //     "maven.executable.path": "/usr/share/maven/bin/mvn",
+    //     "java.configuration.maven.userSettings": "/usr/share/maven/conf/settings.xml"
+    // },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-maven",
+                "redhat.java",
+                "vscjava.vscode-spring-boot-dashboard",
+                "vscjava.vscode-spring-initializr"
+            ],
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "java.jdt.ls.java.home": "/usr/local/openjdk-11",
+                "maven.executable.path": "/usr/share/maven/bin/mvn",
+                "java.configuration.maven.userSettings": "/usr/share/maven/conf/settings.xml"
+            }
+        }
+    },
+    "forwardPorts": [
+        8080,
+        9010
+    ],
+    //"postCreateCommand": "mvn clean install",
+    "remoteUser": "root",
+    // "runArgs": [
+    //     "--user",
+    //     "root"
+    // ],
+    "remoteEnv": {
+        "JAVA_HOME": "/usr/local/openjdk-11"
+    }
+}
